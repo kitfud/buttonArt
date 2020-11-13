@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.Button:hover{
+  background:white !important;
+}
+
+.Button:mousedown{
+  background:orange !important;
+}
+
+.vcenter {
+  
+  vertical-align: middle;
+  float: none;
+  margin: auto; 
+  max-width: 300px;
+}
+

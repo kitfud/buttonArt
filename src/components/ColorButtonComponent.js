@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { auth, firestore, fireauth, firebasestore,storage } from '../firebase/firebase';
-import firebase from 'firebase';
-
+import React from 'react';
+import {firestore} from '../firebase/firebase';
+import '../App.css';
 class ColorButton extends React.Component{
 
     constructor(props){
@@ -54,7 +53,7 @@ class ColorButton extends React.Component{
       }
       
       change(){
-        if(this.state.buttonText == "0"){
+        if(this.state.buttonText === "0"){
           this.updateButton(this.props.id,"blue","1")
         }
         else{
@@ -93,23 +92,19 @@ class ColorButton extends React.Component{
       }
       
       
-      render(){
-      
-        const formatted = this.state.buttons.map((item)=>
-        <div key={item._id}>{item.color}</div>
-        )
-        const buttonColorData = this.state.buttons.map((item)=> item.color)
-        
+      render(){   
         
         const buttonStyle = {
           "color":"black",
-          "background":this.state.buttonColor
+          "background":this.state.buttonColor,
+          "width":"2em",
+          "height":"2em"
         }
       
       
         return (
         
-      <button style={buttonStyle} onClick={this.change}>{this.state.buttonText}</button>
+      <button className ="Button" style={buttonStyle} onClick={this.change}></button>
     
         )
       }
