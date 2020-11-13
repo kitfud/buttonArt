@@ -33,23 +33,50 @@ componentDidMount(){
 }
 
 change(){
-  this.setState(
-    {buttonText: "Now!"}
-  )
-}
+  if(this.state.buttonText =="Begin"){
+    this.setState(
+      {buttonText: "Now!"}
+    )
+  }
+  else{
+    this.setState(
+      {buttonText: "Begin"}
+    )
+  }
+  
+  }
+ 
+
+
+
 
 render(){
+
+
+
 const formatted = this.state.buttons.map((item)=>
 <div key={item._id}>{item.color}</div>
 )
+let array = []
+const buttonData = this.state.buttons.map((item)=> item.color)
+
+
+const buttonStyle = {
+  "color":"black",
+  "background":buttonData[0]
+}
 
   return (
     <div>
-<button onClick={this.change}>{this.state.buttonText}</button>
+      <div>current color:{buttonData[0]}</div>
+      <div>Server data:</div>
+      <div>{formatted}</div>
+<button style={buttonStyle} onClick={this.change}>{this.state.buttonText}</button>
     </div>
   )
 }
 
 }
+
 
 export default App;
